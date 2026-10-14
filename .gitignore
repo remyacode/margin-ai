@@ -1,0 +1,11 @@
+.env
+*.env.local
+venv/
+__pycache__/
+node_modules/
+.DS_Store
+*.pyc
+dist/
+.firebase/
+service-account*.json
+*-key.json
