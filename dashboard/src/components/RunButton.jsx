@@ -76,7 +76,7 @@ export default function RunButton({ onPipelineComplete }) {
         </div>
         <div>
           <div style={{ color: '#FFFFFF', fontSize: '14px', fontWeight: 700 }}>
-            Orchestrate All 4 AI Agents
+            Run Full Profit Audit
           </div>
           <div style={{ color: '#8E9BAC', fontSize: '11px' }}>
             SourceSense → MarginMap → ReturnIQ → LaunchRadar
@@ -118,7 +118,7 @@ export default function RunButton({ onPipelineComplete }) {
           }}
         >
           <Play size={13} fill="#FFFFFF" />
-          <span>{running ? 'Running...' : 'Run Pipeline'}</span>
+          <span>{running ? 'Running...' : 'Start Full Audit'}</span>
         </button>
       </div>
     </div>

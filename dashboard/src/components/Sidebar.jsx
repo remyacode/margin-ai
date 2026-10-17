@@ -12,14 +12,14 @@ import {
 
 export default function Sidebar({ activeTab, setActiveTab }) {
   const menuItems = [
-    { id: 'overview', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'sourcesense', label: 'SourceSense', icon: Search, badge: '₹1.95L' },
-    { id: 'marginmap', label: 'MarginMap', icon: MapPin, badge: '1 Loss' },
-    { id: 'returniq', label: 'ReturnIQ', icon: RefreshCw, badge: '31% vs 4%' },
-    { id: 'launchradar', label: 'LaunchRadar', icon: Rocket, badge: '2 SKUs' },
-    { id: 'skus', label: 'All SKUs Intelligence', icon: Boxes },
-    { id: 'feed', label: 'Live Agent Stream', icon: Activity },
-    { id: '3d-hero', label: '3D Neural Core', icon: Sparkles },
+    { id: 'overview', label: 'Dashboard', icon: LayoutDashboard, sub: 'Your store at a glance' },
+    { id: 'sourcesense', label: 'SourceSense', icon: Search, badge: '₹1.95L', sub: 'Find supplier cost leaks' },
+    { id: 'marginmap', label: 'MarginMap', icon: MapPin, badge: '1 Loss', sub: 'See profit per product' },
+    { id: 'returniq', label: 'ReturnIQ', icon: RefreshCw, badge: '31% vs 4%', sub: 'Cut return-driven losses' },
+    { id: 'launchradar', label: 'LaunchRadar', icon: Rocket, badge: '2 SKUs', sub: 'Spot your next winner' },
+    { id: 'skus', label: 'All SKUs Intelligence', icon: Boxes, sub: 'Every product, every margin' },
+    { id: 'feed', label: 'Live Agent Stream', icon: Activity, sub: 'AI agents thinking live' },
+    { id: '3d-hero', label: '← Landing Page', icon: Sparkles, sub: 'Back to the intro' },
   ]
 
   return (
@@ -82,7 +82,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
               MARGIN <span style={{ color: '#00F5FF' }}>AI</span>
             </div>
             <div style={{ fontSize: '10px', color: '#8E9BAC', letterSpacing: '0.5px' }}>
-              Shopify Autonomous Ops
+              AI Profit Intelligence
             </div>
           </div>
         </div>
@@ -136,7 +136,10 @@ export default function Sidebar({ activeTab, setActiveTab }) {
                   >
                     <Icon size={16} />
                   </div>
-                  <span>{item.label}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                    <span>{item.label}</span>
+                    {item.sub && <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.35)', fontWeight: 400 }}>{item.sub}</span>}
+                  </div>
                 </div>
 
                 {item.badge && (
@@ -187,7 +190,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
         </div>
 
         <div style={{ color: '#FFFFFF', fontSize: '13px', fontWeight: 700, marginBottom: '4px' }}>
-          Autonomous Copilot
+          AI Assistant
         </div>
         <div style={{ color: '#8E9BAC', fontSize: '11px', lineHeight: 1.4, marginBottom: '12px' }}>
           Google ADK + Gemini 1.5 Flash watching your Shopify and Amazon store margins 24/7.

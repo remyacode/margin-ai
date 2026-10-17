@@ -5,13 +5,13 @@ export default function Header({ activeTab, onRunAudit }) {
   const [searchValue, setSearchValue] = useState('')
 
   const titles = {
-    overview: 'Autonomous Commerce Overview',
+    overview: 'AI Profit Intelligence Overview',
     sourcesense: 'SourceSense — Supplier Price Arbitrage',
     marginmap: 'MarginMap — True Unit Economics',
     returniq: 'ReturnIQ — Channel Return Discrepancies',
     launchradar: 'LaunchRadar — Product Expansion AI',
     skus: 'All SKUs Intelligence & Unit Economics',
-    feed: 'Real-Time Autonomous Agent Stream',
+    feed: 'Live AI Agent Activity',
     '3d-hero': '3D Neural Architecture',
   }
 

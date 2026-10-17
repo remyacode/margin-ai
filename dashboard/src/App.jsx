@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 import StatCards from './components/StatCards'
@@ -32,24 +32,36 @@ export default function App() {
 
   const handleTabChange = (tab) => {
     if (tab === '3d-hero') {
+      window.history.pushState({ intro: true }, '', '/')
       setShowIntro(true)
     } else {
+      window.history.pushState({ tab }, '', `/${tab}`)
       setActiveTab(tab)
     }
   }
 
+  useEffect(() => {
+    const handlePopState = (e) => {
+      if (e.state?.tab) setActiveTab(e.state.tab)
+      else if (e.state?.intro) setShowIntro(true)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
   const handleNavigateToAgent = (agentKey) => {
-    setActiveTab(agentKey.toLowerCase())
+    const tab = agentKey.toLowerCase()
+    window.history.pushState({ tab }, '', `/${tab}`)
+    setActiveTab(tab)
   }
 
   // Launch 3D Animation first
   if (showIntro) {
     return (
       <HeroScene
-        onEnterDashboard={() => setShowIntro(false)}
+        onEnterDashboard={() => { window.history.pushState({ tab: 'overview' }, '', '/overview'); setShowIntro(false) }}
         onSelectAgent={(agentName) => {
-          setActiveTab(agentName.toLowerCase())
-          setShowIntro(false)
+          const t = agentName.toLowerCase(); window.history.pushState({ tab: t }, '', `/${t}`); setActiveTab(t); setShowIntro(false)
         }}
       />
     )
@@ -154,7 +166,7 @@ export default function App() {
             <RunButton onPipelineComplete={() => {}} />
 
             {/* 4 Dedicated AI Agents Deep Dive */}
-            <AgentDeepDive agents={FOUR_AGENTS} onOpenNegotiationModal={() => {}} />
+            <AgentDeepDive agents={FOUR_AGENTS} onOpenNegotiationModal={() => {}} initialAgent={activeTab} />
 
             {/* Live Insights Feed */}
             <InsightsFeed />
@@ -167,7 +179,7 @@ export default function App() {
           activeTab === 'returniq' ||
           activeTab === 'launchradar') && (
           <div>
-            <AgentDeepDive agents={FOUR_AGENTS} onOpenNegotiationModal={() => {}} />
+            <AgentDeepDive agents={FOUR_AGENTS} onOpenNegotiationModal={() => {}} initialAgent={activeTab} />
             <InsightsFeed />
           </div>
         )}

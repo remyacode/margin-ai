@@ -117,11 +117,11 @@ export default function InsightsFeed() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Activity size={18} color="#00F5FF" />
             <h2 style={{ color: '#FFFFFF', margin: 0, fontSize: '20px', fontWeight: 800 }}>
-              Live Autonomous Agent Stream
+              Live AI Agent Activity
             </h2>
           </div>
           <p style={{ color: '#8E9BAC', fontSize: '12px', marginTop: '4px' }}>
-            Telemetry synced in real time via Supabase & Google Cloud Run orchestrator
+            Live data · updates every few seconds
           </p>
         </div>
 

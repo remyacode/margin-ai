@@ -44,7 +44,7 @@ export default function HeroWelcomeCard({ brandInfo, onNavigateToAgent }) {
           {brandInfo.founder}
         </h2>
         <div style={{ color: '#00F5FF', fontSize: '13px', fontWeight: 600 }}>
-          4 Autonomous Agents active on {brandInfo.name} (₹32.4L/mo)
+          Your AI team watches your Shopify store 24/7, finds where you're losing money, and tells you exactly what to fix.
         </div>
       </div>
 
@@ -125,7 +125,7 @@ export default function HeroWelcomeCard({ brandInfo, onNavigateToAgent }) {
             padding: 0,
           }}
         >
-          <span>Review Agent Action Directives</span>
+          <span>See What Your AI Found</span>
           <ArrowRight size={15} style={{ color: '#00F5FF' }} />
         </button>
       </div>

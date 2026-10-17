@@ -298,9 +298,12 @@ export default function HeroScene({ onEnterDashboard, onSelectAgent }) {
             textShadow: '0 10px 40px rgba(0, 117, 255, 0.6)',
           }}
         >
-          AUTONOMOUS MARGIN AI
+          MARGIN AI
         </h1>
 
+        <p style={{ margin: '0 auto 16px', color: 'rgba(255,255,255,0.6)', fontSize: '15px', fontWeight: 400, lineHeight: '1.6', maxWidth: '560px', textAlign: 'center' }}>
+          Sell more. Keep more. 6 AI agents find exactly where your profit is leaking — and tell you how to stop it.
+        </p>
         <div
           style={{
             display: 'inline-flex',
