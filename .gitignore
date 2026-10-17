@@ -9,3 +9,5 @@ dist/
 .firebase/
 service-account*.json
 *-key.json
+.bob/
+
