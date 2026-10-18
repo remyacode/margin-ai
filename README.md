@@ -60,6 +60,10 @@ Margin is an AI-powered platform for independent D2C brand owners in India doing
 
 ```
 margin-ai/
+├── .gitignore
+├── README.md
+├── package-lock.json
+│
 ├── agents/
 │   ├── adk_orchestrator/       # Sequential pipeline coordinator & Flask HTTP server
 │   │   ├── main.py             # Cloud Run HTTP trigger (/run, /health)
@@ -82,32 +86,43 @@ margin-ai/
 │       ├── agent.py
 │       ├── Dockerfile
 │       └── requirements.txt
+│
 ├── data/
 │   ├── setup_bigquery.py       # BigQuery dataset & table schemas
 │   └── seed_data.py            # 15 D2C SKUs, 90-day orders & supplier benchmarks
-├── dashboard/                  # React 19 + Vite Vision UI frontend
-│   ├── src/
-│   │   ├── assets/             # Bioluminescent hero artwork & logos
-│   │   ├── components/
-│   │   │   ├── Sidebar.jsx             # Vision UI navigation & Copilot status
-│   │   │   ├── Header.jsx              # Search, store switcher, live indicators
-│   │   │   ├── StatCards.jsx           # 4 top KPI metrics (GMV, Net Margin, Leakage, Returns)
-│   │   │   ├── HeroWelcomeCard.jsx     # Vision UI bioluminescent jellyfish hero card
-│   │   │   ├── MarginHealthGauge.jsx   # Semi-circle satisfaction/protection gauge (92%)
-│   │   │   ├── CapitalEfficiencyCard.jsx# Circular progress index (9.4 / 10)
-│   │   │   ├── RevenueChart.jsx        # Dual glowing AreaChart (GMV vs Net Margin)
-│   │   │   ├── ChannelProfitBarChart.jsx# Channel profitability vertical BarChart
-│   │   │   ├── AgentDeepDive.jsx       # 4 Interactive Agent Workspaces & Action Triggers
-│   │   │   ├── MarginCards.jsx         # All SKUs ranked with loss-maker warnings
-│   │   │   ├── InsightsFeed.jsx        # Real-time WebSocket agent telemetry stream
-│   │   │   ├── RunButton.jsx           # Pipeline trigger with progressive feedback
-│   │   │   └── HeroScene.jsx           # 3D Three.js Torus Knot + GSAP + Lenis scroll
-│   │   ├── data/mockData.js            # Realistic brand data & findings store
-│   │   ├── lib/supabase.js             # Supabase client with graceful fallback
-│   │   ├── App.jsx                     # Master application
-│   │   └── index.css                   # Vision UI dark glassmorphism stylesheet
-│   └── firebase.json           # Firebase Hosting configuration
-└── README.md
+│
+└── dashboard/                  # React 19 + Vite Vision UI frontend
+    ├── Dockerfile              # Multi-stage build (node:20 → nginx:alpine)
+    ├── cloudbuild.yaml         # Google Cloud Build CI/CD to GCR
+    ├── nginx.conf              # Nginx reverse proxy config for SPA routing
+    ├── firebase.json           # Firebase Hosting configuration
+    ├── vite.config.js
+    ├── eslint.config.js
+    ├── index.html
+    ├── package.json            # React 19, Vite, Three.js, Recharts, GSAP
+    └── src/
+        ├── App.jsx             # Master dashboard router & tab layout
+        ├── index.css           # Vision UI cosmic dark glassmorphism stylesheet
+        ├── main.jsx
+        ├── assets/             # Bioluminescent hero artwork & logos
+        ├── components/
+        │   ├── Sidebar.jsx             # Vision UI navigation with agent badges
+        │   ├── Header.jsx              # Search, store switcher, live indicators
+        │   ├── StatCards.jsx           # 4 KPI metrics (GMV, Net Margin, Leakage, Returns)
+        │   ├── HeroWelcomeCard.jsx     # Vision UI bioluminescent hero card
+        │   ├── MarginHealthGauge.jsx   # Semi-circle portfolio margin health gauge
+        │   ├── CapitalEfficiencyCard.jsx
+        │   ├── RevenueChart.jsx        # Dual-area chart (GMV vs Net Margin)
+        │   ├── ChannelProfitBarChart.jsx
+        │   ├── AgentDeepDive.jsx       # 4 interactive agent workspaces
+        │   ├── MarginCards.jsx         # Per-SKU true margin cards & loss-maker warnings
+        │   ├── InsightsFeed.jsx        # Supabase Realtime WebSocket telemetry feed
+        │   ├── RunButton.jsx           # Pipeline trigger with live status indicators
+        │   └── HeroScene.jsx           # 3D Three.js Torus Knot + GSAP + Lenis scroll
+        ├── data/
+        │   └── mockData.js             # Realistic fallback brand data & findings store
+        └── lib/
+            └── supabase.js             # Supabase client with graceful fallback
 ```
 
 ---
@@ -140,7 +155,7 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 python agents/adk_orchestrator/orchestrator.py
 
 # Or hit the Cloud Run HTTP trigger
-curl -X POST https://margin-orchestrator-xxxx.a.run.app/run
+curl -X POST https://margin-ai-1059250826101.us-central1.run.app/run
 ```
 ---
 
