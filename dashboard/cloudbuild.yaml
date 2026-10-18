@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--build-arg'
+      - 'VITE_SUPABASE_URL=https://vnoeoualqjyqvuthoclh.supabase.co'
+      - '--build-arg'
+      - 'VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZub2VvdWFscWp5cXZ1dGhvY2xoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIyMjk3MzEsImV4cCI6MjEwNzgwNTczMX0.XpRhyenvrvqYdb1VqWkKpHFar9xJacHtwrN5SFu9vww'
+      - '-t'
+      - 'gcr.io/margin-ai-2026/margin-ai'
+      - '.'
+images:
+  - 'gcr.io/margin-ai-2026/margin-ai'
