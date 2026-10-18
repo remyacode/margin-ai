@@ -142,19 +142,6 @@ python agents/adk_orchestrator/orchestrator.py
 # Or hit the Cloud Run HTTP trigger
 curl -X POST https://margin-orchestrator-xxxx.a.run.app/run
 ```
-
----
-
-## 🎬 3-Minute Demo Script
-
-- **0:00 – 0:20 | Introduction**: Open the dashboard URL. *"This is Margin — an AI intelligence platform for independent brand owners doing ₹5L–₹50L/month. In the next 3 minutes, I'll show you how it tells a brand owner exactly where they are losing money and what to do about it."*
-- **0:20 – 0:40 | The Problem & Agents**: Show the hero screen and the 4 active agents. *"Independent founders lose sleep over four questions: supplier overcharges, true SKU net margins after platform fees, channel returns, and what to launch next. Margin runs 4 background agents coordinated by Google ADK with Gemini 1.5 at the core."*
-- **0:40 – 1:00 | Trigger Pipeline**: Click **"Run Margin Analysis"**. Show real-time progressive orchestration through all 4 agents.
-- **1:00 – 1:30 | MarginMap Finding**: Switch to **Margin Intelligence / All SKUs**. *"MarginMap calculated true net pocket margin after raw COGS, Amazon's 18% fee, FBA pick/pack, and returns. Notice the Silver Toe Ring — it appears to generate revenue, but actually burns -₹186 on every order."*
-- **1:30 – 2:00 | SourceSense Finding**: Show the **SourceSense workspace**. *"SourceSense audited our packaging supplier against Morbi and Bhiwandi market benchmarks. Apex is charging ₹420/unit vs the ₹290 market median — that's ₹1.95 Lakh lost every year. With one click, the founder gets a pre-drafted negotiation WhatsApp citing market data."*
-- **2:00 – 2:30 | ReturnIQ Finding**: Show the **ReturnIQ workspace**. *"ReturnIQ analyzed 142 customer reviews and uncovered that the Rose Gold Anklet returns at 31% on Amazon but only 4% on Shopify. The root cause is Amazon's automated chute sorting crushing polybag clasps, whereas Shopify orders ship in rigid boxes. Upgrading FBA packaging saves ₹84,000/month."*
-- **2:30 – 3:00 | LaunchRadar Finding**: Show the **LaunchRadar recommendations**. *"LaunchRadar identified two high-margin, low-return products to invest in next: 18K PVD Cuban Chains and Celestial Opal Hoops. This is enterprise-grade commerce intelligence made accessible to every small brand."*
-
 ---
 
 ## 🛡️ Security & Privacy
